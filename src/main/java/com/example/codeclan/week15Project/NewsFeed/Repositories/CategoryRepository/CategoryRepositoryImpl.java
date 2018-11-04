@@ -22,7 +22,7 @@ public class CategoryRepositoryImpl implements CategoryRepositoryCustom {
         Session session = entityManager.unwrap(Session.class);
         try {
             Criteria cr = session.createCriteria(Article.class);
-            cr.add(Restrictions.eq("Category_Id", categoryId));
+            cr.add(Restrictions.eq("category.id", categoryId));
             result = cr.list();
         } catch (HibernateException ex) {
             ex.printStackTrace();

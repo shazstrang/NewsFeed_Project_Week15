@@ -24,12 +24,12 @@ public class Article {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "JournalistId", nullable = false)
+    @JoinColumn(name = "journalist_id", nullable = false)
     private Journalist journalist;
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "CategoryId", nullable = false)
+    @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
     public Article(Date date, Journalist journalist, Category category, String title, String content) {

@@ -23,7 +23,7 @@ public class JournalistRepositoryImpl implements JournalistRepositoryCustom {
         Session session = entityManager.unwrap(Session.class);
         try {
             Criteria cr = session.createCriteria(Article.class);
-            cr.add(Restrictions.eq("Journalist_Id", journalistId));
+            cr.add(Restrictions.eq("journalist.id", journalistId));
             result = cr.list();
         } catch (HibernateException ex) {
             ex.printStackTrace();
