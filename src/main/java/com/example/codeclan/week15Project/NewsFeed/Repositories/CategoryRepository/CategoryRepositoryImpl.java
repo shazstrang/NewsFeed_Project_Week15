@@ -1,6 +1,7 @@
 package com.example.codeclan.week15Project.NewsFeed.Repositories.CategoryRepository;
 
 import com.example.codeclan.week15Project.NewsFeed.Models.Article;
+import com.example.codeclan.week15Project.NewsFeed.Models.Journalist;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -30,5 +31,10 @@ public class CategoryRepositoryImpl implements CategoryRepositoryCustom {
             session.close();
         }
         return result;
+    }
+
+    @Override
+    public List<Journalist> getAllJournalistsForCategory(Long Id) {
+        return null;
     }
 }

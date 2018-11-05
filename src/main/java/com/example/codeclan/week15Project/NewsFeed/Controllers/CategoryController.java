@@ -17,9 +17,11 @@ public class CategoryController {
     @Autowired
     CategoryRepository categoryRepository;
 
-    @GetMapping(value = "/{categortId}/articles")
-    public List<Article> getArticlesForJournalist(@PathVariable Long categoryId) {
+    @GetMapping(value = "/{categoryId}/articles")
+    public List<Article> getArticlesForCategory(@PathVariable Long categoryId) {
         return categoryRepository.getAllArticlesForCategory(categoryId);
     }
+
+
 
 }

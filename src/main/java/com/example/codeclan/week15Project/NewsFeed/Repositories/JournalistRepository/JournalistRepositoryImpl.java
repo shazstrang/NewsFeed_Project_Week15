@@ -2,6 +2,7 @@ package com.example.codeclan.week15Project.NewsFeed.Repositories.JournalistRepos
 
 
 import com.example.codeclan.week15Project.NewsFeed.Models.Article;
+import com.example.codeclan.week15Project.NewsFeed.Models.Category;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -23,6 +24,24 @@ public class JournalistRepositoryImpl implements JournalistRepositoryCustom {
         Session session = entityManager.unwrap(Session.class);
         try {
             Criteria cr = session.createCriteria(Article.class);
+            cr.add(Restrictions.eq("journalist.id", journalistId));
+            result = cr.list();
+        } catch (HibernateException ex) {
+            ex.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return result;
+    }
+
+    @Transactional
+    public List<Category> getAllCategoriesForJournalist(Long journalistId){
+        List<Category> result = null;
+        Session session = entityManager.unwrap(Session.class);
+        try {
+            Criteria cr = session.createCriteria(Category.class);
+            cr.createAlias("articles", "article");
+            cr.createAlias("article.article", "article");
             cr.add(Restrictions.eq("journalist.id", journalistId));
             result = cr.list();
         } catch (HibernateException ex) {
