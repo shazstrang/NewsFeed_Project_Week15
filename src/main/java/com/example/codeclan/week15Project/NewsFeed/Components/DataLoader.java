@@ -49,10 +49,10 @@ public class DataLoader implements ApplicationRunner {
         categoryRepository.save(category3);
 
         DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Article article1 = new Article(df.parse("2018/11/01 22:30:12"), journalist1, category1, "Ice Hockey 101", "The news about ice hockey...");
+        Article article1 = new Article("2018/11/01 22:30:12", journalist1, category1, "Ice Hockey 101", "The news about ice hockey...");
         articleRepository.save(article1);
 
-        Article article2 = new Article(df.parse("2018/05/05 14:20:00"), journalist2, category3, "JavaScript for Dimwits", "Dont even think about it...");
+        Article article2 = new Article("2018/05/05 14:20:00", journalist2, category3, "JavaScript for Dimwits", "Dont even think about it...");
         articleRepository.save(article2);
     }
 }

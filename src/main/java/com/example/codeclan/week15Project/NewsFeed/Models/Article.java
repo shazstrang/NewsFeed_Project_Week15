@@ -3,7 +3,6 @@ package com.example.codeclan.week15Project.NewsFeed.Models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Table(name = "Articles")
@@ -20,7 +19,7 @@ public class Article {
     private String content;
 
     @Column(name = "Date")
-    private Date date;
+    private String date;
 
     @JsonIgnore
     @ManyToOne
@@ -32,7 +31,7 @@ public class Article {
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
 
-    public Article(Date date, Journalist journalist, Category category, String title, String content) {
+    public Article(String date, Journalist journalist, Category category, String title, String content) {
         this.date = date;
         this.journalist = journalist;
         this.category = category;
@@ -67,11 +66,11 @@ public class Article {
         this.content = content;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

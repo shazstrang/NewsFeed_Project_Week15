@@ -8,5 +8,7 @@ import java.util.List;
 
 @Repository
 public interface ArticleRepository  extends JpaRepository<Article, Long>, ArticleRepositoryCustom {
-    List<Article> getAllArticlesByDate(String Date);
+
+    List<Article> getAllArticlesForDate(String date);
+
 }

@@ -52,12 +52,12 @@ public class NewsFeedApplicationTests {
 		assertEquals("JavaScript for Dimwits", found.get(0).getTitle ());
 	}
 
-//	@Test
-//	public void canGetAllArticlesByDate() {
-//		List<Article> found = ArticleRepository.getAllArticlesByDate();
-//		assertEquals(1,  found.size());
-//		assertEquals( "2018/11/01 22:30:12", found.get(0).getDate ());
-//	}
+	@Test
+	public void canGetAllArticlesByDate() {
+		List<Article> found = (List<Article>) articleRepository.getAllArticlesForDate("2018/11/01 22:30:12");
+		assertEquals(1,  found.size());
+
+	}
 
 
 }
